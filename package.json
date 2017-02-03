@@ -1,0 +1,65 @@
+{
+  "name": "rollup-plugin-browserslist",
+  "version": "1.0.0",
+  "description": "locate modules using the Node resolution algorithm, exclude scripts not required by browserslist",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/rollup-plugin-browserslist",
+  "homepage": "https://github.com/jonathantneal/rollup-plugin-browserslist#readme",
+  "bugs": "https://github.com/jonathantneal/rollup-plugin-browserslist/issues",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "scripts": {
+    "clean": "git clean -X -d -f",
+    "lint": "npm run lint:ec && npm run lint:js",
+    "lint:ec": "echint",
+    "lint:js": "eslint *.js --cache --ignore-pattern .gitignore",
+    "pre-commit": "echo 'Running pre-commit checks...' && exit 0",
+    "prepublish": "npm test",
+    "tape": "node .tape",
+    "test": "npm run lint && npm run tape"
+  },
+  "engines": {
+    "node": ">=6.5.0"
+  },
+  "dependencies": {
+    "browserslist": "^1.7.1",
+    "resolve": "^1.2.0"
+  },
+  "devDependencies": {
+    "echint": "^4.0.1",
+    "echint-config-dev": "1.0.0",
+    "element-closest": "github:jonathantneal/closest",
+    "eslint": "^3.14.1",
+    "eslint-config-dev": "1.0.0",
+    "pre-commit": "^1.2.2",
+    "rollup": "^0.41.4",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0"
+  },
+  "echint": {
+    "extends": "dev"
+  },
+  "eslintConfig": {
+    "extends": "dev",
+    "rules": {
+      "no-implicit-coercion": [
+        0
+      ],
+      "no-nested-ternary": [
+        0
+      ]
+    }
+  },
+  "pre-commit": [
+    "pre-commit",
+    "test"
+  ],
+  "keywords": [
+    "rollup-plugin",
+    "polyfill"
+  ]
+}
